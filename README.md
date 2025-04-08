@@ -24,4 +24,26 @@ chmod +x multiplicar.sh
 ```
 ![Screenshot at 2025-04-08 18-39-58](https://github.com/user-attachments/assets/a50a45d6-aa40-47f5-9568-175ff0c703a6)
 
+### 2.
+Ahora, debemos hacer que tras ejecutar el script, podamos pararlo con una señal y su PID
+Cambiamos el codigo del script original ylo modificamos para pararlo con el USR1:
+``` bash
+#!/bin/bash
+
+# Definir qué hacer cuando se recibe la señal USR1
+trap 'echo "esperando operando"' USR1
+
+# Pedimos el número
+echo -n "Introduce un número: "
+read VAR
+
+# Mostramos el resultado multiplicado por 7
+echo "El número multiplicado por 7 es: $[VAR * 7]"
+
+# Mantenemos el script vivo para poder recibir la señal
+while true; do
+    sleep 1
+done
+
+```
 
