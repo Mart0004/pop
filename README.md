@@ -78,5 +78,28 @@ A continuación lo ejecutamos:
 ![xeyes1](https://github.com/user-attachments/assets/e0ef4991-8ecb-45f4-a135-dfb605e654cf)
 
 
+## Exercici 3.2
+### 1
+Cree un archivo llamado orig.txt con el comando touch y use el comando ln para crear un enlace simbólico a orig.txt llamado link.txt. Abra el editor de texto vi y modifique el archivo orig.txt introduciendo texto.
+```bash
+# Creem un fitxer orig.txt amb el seu 'acces directe' link.txt
 
+touch orig.txt
+
+ln -s orig.txt link.txt
+
+#Editem el Orig.txt
+vi orig.txt
+```
+
+![vi](https://github.com/user-attachments/assets/7811d740-4192-48c0-a32f-331d6a6743a3)
+
+
+```bash
+# Mirem si ha cambiat el contingut als dos fitxers:
+cat orig.txt
+cat link.txt
+```
+
+![cat](https://github.com/user-attachments/assets/be9877a8-afff-4691-8b5a-f134bc11ea2f)
 
