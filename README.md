@@ -65,5 +65,18 @@ kill -USR1 PID #(El que te salga en multipl_signal.sh)
 
 ![Screenshot at 2025-04-09 12-01-17](https://github.com/user-attachments/assets/e384795f-6bfe-41f6-9c38-e4a2f8ca2535)
 
+### Exercise 3
+El proceso del script de este ejercicio és muy similar al anterior:
+
+Aquí esta el codigo del lanzar_xeyes.sh:
+
+![xeyes](https://github.com/user-attachments/assets/99666fc7-4174-461b-bb08-aa12c8e8faf1)
+
+
+A continuación lo ejecutamos:
+
+![xeyes1](https://github.com/user-attachments/assets/e0ef4991-8ecb-45f4-a135-dfb605e654cf)
+
+
 
 
