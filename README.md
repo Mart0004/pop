@@ -176,7 +176,7 @@ El texto dentro del text1.txt es reconocido como texto UFT-8, debido a la ñ:
 
 ### 13
 En el buscador, me sale que 'ñ' tiene una codificación:
-    En ISO-8859-15: En esta codificación, la letra 'ñ' (minúscula) se representa con el valor hexadecimal F1.
+    En ISO-8859-15: En esta codificación, la letra 'ñ' (minúscula) se representa con el valor hexadecimal ***F1***.
     En UTF-8: En UTF-8, la "ñ" se codifica en dos bytes: C3 B1. 
 Con hexdump se ve que la codificación nos muestra: 
 
@@ -191,7 +191,37 @@ El resultado de text2.txt guardado en Gedit es:
 00000000  61 62 c3 b1 0d 0a                                 |ab....|
 
 ```
-El fin de línea en este texto es 0d 0a, 
+El fin de línea en este texto es 0d 0a, donde el '0a' significa el final de la línea de texto, y '0d' es el salto de línea.
 
+### 16
+    Las diferencias según el sistema son:
+    **Unix y macOS nuevo:**
+    Usa solo LF (Line Feed) para marcar el final de una línea.
+        Hexadecimal: 0x0A
+        Representación: \n
+    
+    **Windows:**
+    Usa una combinación de CR (Carriage Return) + LF (Line Feed) para marcar el final de una línea.
+        Hexadecimal: 0x0D 0x0A
+        Representación: \r\n
+        
+    **Mac clásico:**
+    Usaba solo CR (Carriage Return) para el salto de línea.
+        Hexadecimal: 0x0D
+        Representación: \r
+
+### 17
+Tras crear el archivo vemos la codificación hexadecimal con el siguiente comando:
+```bash
+hexdump -C text3.txt
+```
+Como hemos visto antes, la codificación serà:
+```bash
+00000000  61 62 f1                                          |ab.|
+00000003
+
+```
+Donde 61 = a, 62 = b (en ASCII) y f1 = ñ (en ISO-8859-15).
+Eso significa que las diferentes codificaciones varían la representacion de los caracteres.
 
 
