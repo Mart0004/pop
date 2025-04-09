@@ -82,24 +82,63 @@ A continuación lo ejecutamos:
 ### 1
 Cree un archivo llamado orig.txt con el comando touch y use el comando ln para crear un enlace simbólico a orig.txt llamado link.txt. Abra el editor de texto vi y modifique el archivo orig.txt introduciendo texto.
 ```bash
-# Creem un fitxer orig.txt amb el seu 'acces directe' link.txt
+# Creamos un fichero con su 'enlace':
 
 touch orig.txt
 
 ln -s orig.txt link.txt
 
-#Editem el Orig.txt
+#Editamos el Orig.txt
 vi orig.txt
 ```
 
 ![vi](https://github.com/user-attachments/assets/7811d740-4192-48c0-a32f-331d6a6743a3)
 
+### 2
 
 ```bash
-# Mirem si ha cambiat el contingut als dos fitxers:
+# Miramos si ha cambiado el contenido en los dos ficheros:
 cat orig.txt
 cat link.txt
 ```
-
+Ha cambiado, porque el 'enlace' actúa como una especie de acceso directo, es decir, que es el orig.txt, pero con otro nombre.
 ![cat](https://github.com/user-attachments/assets/be9877a8-afff-4691-8b5a-f134bc11ea2f)
+
+
+### 3
+![p2](https://github.com/user-attachments/assets/4add7a11-446a-46ca-8366-0793461dd5d0)
+
+Como se puede observar, tanto si cambias el link.txt, como si cambias el orig.txt, ambos actuan como si fueran uno solo, es decir, que es un 'acceso directo'.
+
+![p3](https://github.com/user-attachments/assets/c5c1fe4b-a55d-4cfe-8ed3-cd5e0b6e446a)
+
+### 4
+Para eso le escribiremos este codigo 
+```bash
+chmod 000 orig.txt
+
+```
+
+![den](https://github.com/user-attachments/assets/2270ee25-7454-44d9-bd6b-c98ce8da8bfd)
+
+Como se puede ver, no permitirá el acceso al archivo orig.txt desde link.txt, ya que este solo es un acceso directo, un puntero, visto de otra forma, así que si el orig.txt no tiene permisos, mucho menos el link.txt.
+
+
+### 5
+Según los resultados, vemos como el hecho de quetar los permisos al link.txt también afecta de el mismo modo al orig.txt.
+Creo que esto sucede debido a que, como son el mismo enlace, el hecho de quitar uno, està quitando tambien permisos del otro.
+![5](https://github.com/user-attachments/assets/580b7f53-e7b9-4e2a-b3b2-715ebc4fca80)
+
+
+### 6 
+Tras eliminar orig.txt el link.txt no logrará encontrar el directorio de donde sacaba la información anteriormente.
+
+![dd](https://github.com/user-attachments/assets/1a3d7c02-192d-4671-a140-d33397de5b6a)
+
+Sin embargo, si creamos de nuevo orig.txt, link.txt funcionará de nuevo:
+
+![ll](https://github.com/user-attachments/assets/1b921fa9-8320-4386-a5ab-907a18f6a6fe)
+
+
+
 
