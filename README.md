@@ -139,6 +139,59 @@ Sin embargo, si creamos de nuevo orig.txt, link.txt funcionará de nuevo:
 
 ![ll](https://github.com/user-attachments/assets/1b921fa9-8320-4386-a5ab-907a18f6a6fe)
 
+Con el comando echo hello > link.txt sobreescribimos el contenido de kink.txt (orig.txt) y lo cambia por la línea 'hello'.
+![ddd](https://github.com/user-attachments/assets/c9d4ed38-23b7-4042-897d-d26557631f6d)
+
+
+### 7
+En esta imagen se ve como orig.txt solo tiene un enlace, pero no se detalla sobre este. Sin embargo link.txt tiene 1 enlace en orig.txt
+![stat](https://github.com/user-attachments/assets/235e985e-2f57-42f9-8387-e6609f9acf92)
+
+### 8
+
+Ahora, como uno apunta al otro, en este caso hard.txt y orig.txt tendrán 2 links cada uno:
+![dsa](https://github.com/user-attachments/assets/63f40c4b-7bf8-45de-be6a-b432109a4067)
+Se puede entender que el contenido de orig.txt, ya no está solo en orig.txt sino también está en hard, porque orig.txt apunta a hard.txt
+
+### 9
+Con lo que sabemos del 8, podemos entender que si eliminamos uno de los dos, por ejemplo orig.txt, todavía conservaremos el contenido, ya que apuntan ambos al mismo contenido.
+![rm](https://github.com/user-attachments/assets/2080afed-d4ef-4994-8529-831e14b8be40)
+![hardvi](https://github.com/user-attachments/assets/926fcb8d-cb9a-487c-a4a9-b84bd2dbd9e6)
+Hard.txt sigue poseyendo la informacion, aunque orig.txt se haya eliminado.
+
+### 10
+Aquí está la informacion relevante de http
+![http](https://github.com/user-attachments/assets/a871361d-38bc-48c0-8a49-4b85a4a32341)
+
+### 11
+Debería salir toda la información relevante sobre los grupos del sistema. Hay mucha información pero el campo de users, como se observa, está vacío, además de muchisimos grupos vacíos:
+![1](https://github.com/user-attachments/assets/1f40b2a6-a61e-42c9-b024-664833bf784d)
+![2](https://github.com/user-attachments/assets/8312830d-4c78-40b4-9d13-86f62e620652)
+![3](https://github.com/user-attachments/assets/3e198037-ffd2-49f5-b559-ee3499cba30e)
+
+### 12
+El texto dentro del text1.txt es reconocido como texto UFT-8, debido a la ñ:
+
+![text1](https://github.com/user-attachments/assets/9ecc94ea-3e65-4725-8702-cb7f0c0dc5af)
+
+### 13
+En el buscador, me sale que 'ñ' tiene una codificación:
+    En ISO-8859-15: En esta codificación, la letra 'ñ' (minúscula) se representa con el valor hexadecimal F1.
+    En UTF-8: En UTF-8, la "ñ" se codifica en dos bytes: C3 B1. 
+Con hexdump se ve que la codificación nos muestra: 
+
+![ssd](https://github.com/user-attachments/assets/7229f9c5-d01a-48db-9a61-092086d58c06)
+
+### 14
+Según Internet, el carácter 0x0a hexadecimal, indica un salto de línea presente en los documentos de texto en los que hay saltos de línea,que aparecen al pulsar Enter. Necesario para saber Cuando termina la línea.
+
+### 15
+El resultado de text2.txt guardado en Gedit es:
+```bash
+00000000  61 62 c3 b1 0d 0a                                 |ab....|
+
+```
+El fin de línea en este texto es 0d 0a, 
 
 
 
