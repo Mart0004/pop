@@ -26,24 +26,44 @@ chmod +x multiplicar.sh
 
 ### 2.
 Ahora, debemos hacer que tras ejecutar el script, podamos pararlo con una señal y su PID
-Cambiamos el codigo del script original ylo modificamos para pararlo con el USR1:
+Creamos un nuevo script, parecido al original y lo modificamos para pararlo con el USR1:
 ``` bash
+# Primero le pedimos que nos cree el .sh con el editor nano
+nano multipl_signal.sh
+
+# A continuacion introducimos el codigo del script
+
 #!/bin/bash
 
-# Definir qué hacer cuando se recibe la señal USR1
+# Mostramos el PID
+echo "Mi PID es $$"
+
 trap 'echo "esperando operando"' USR1
 
-# Pedimos el número
 echo -n "Introduce un número: "
 read VAR
 
-# Mostramos el resultado multiplicado por 7
 echo "El número multiplicado por 7 es: $[VAR * 7]"
 
-# Mantenemos el script vivo para poder recibir la señal
+# Mantenemos el script abierto para poder ejecutar la señal USR1
 while true; do
     sleep 1
 done
-
 ```
+
+Luego lo guardamos (ctrl + O, Enter) y le damos permisos, para poder ejecutarlo:
+
+``` bash
+chmod +x multipl_signal.sh
+./multipl_signal.sh
+```
+Nos saldrà el PID, junto xcon la ejecucion del programa multiplicar, luego, se nos quedará esperando instrucciones.
+Desde ptro terminal le deberemos pasar el comando:
+```bash
+kill -USR1 PID #(El que te salga en multipl_signal.sh)
+```
+
+![Screenshot at 2025-04-09 12-01-17](https://github.com/user-attachments/assets/e384795f-6bfe-41f6-9c38-e4a2f8ca2535)
+
+
 
